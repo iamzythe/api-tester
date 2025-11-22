@@ -16,19 +16,22 @@ $app->get('/api/status', function ($request, $response, $args) {
     return $response->withHeader('Content-Type', 'application/json');
 });
 
-// Catch-all route for views
-$app->get('/{path:.*}', function ($request, $response, $args) {
-    $path = $args['path'];
-    if ($path == '') {
-        $path = 'index';
-    }
-    $file = __DIR__ . '/../views/' . $path . '.php';
-    if (file_exists($file)) {
-        include $file;
-        return $response;
-    } else {
-        return $response->withStatus(404)->write('View not found');
-    }
-});
+        // Catch-all route for views
+        $app->get('/{path:.*}', function ($request, $response, $args) use ($app) {
+            $path = $args['path'];
+            if ($path == '') {
+                $path = 'index';
+            }
+            $file = __DIR__ . '/../views/' . $path . '.php';
+            if (file_exists($file)) {
+                // Capture the output of the included file
+                ob_start();
+                include $file;
+                $content = ob_get_clean();
 
-$app->run();
+                $response->getBody()->write($content);
+                return $response->withHeader('Content-Type', 'text/html');
+            } else {
+                return $response->withStatus(404)->write('View not found');
+            }
+        });$app->run();
