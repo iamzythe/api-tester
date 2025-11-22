@@ -198,8 +198,18 @@ RewriteRule ^ index.php [QSA,L]
     Header always set X-XSS-Protection "1; mode=block"
 </IfModule>
 ```
+#### Option 3: aaPanel (linux)
+1. Log in to your aaPanel dashboard.
+2. Navigate to the "Websites" section and click on "Add Site".
+3. Fill in the domain name, select the PHP version (7.4 or higher), and set the root directory to the `public` folder of the API Tester project.
+4. After creating the site, go to the "File" section and upload the API Tester files to the server.
+5. Set the appropriate file permissions for the API Tester directory.
+6. Open .user.ini file in public folder and set the following configurations:
+```
+open_basedir=/path/to/wwwroot/your-site-base/:/tmp/
+```
 
-#### Option 3: Docker
+#### Option 4: Docker
 
 ```dockerfile
 FROM php:8.1-fpm-alpine
