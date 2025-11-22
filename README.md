@@ -12,8 +12,8 @@ A professional web-based API testing tool built with PHP Slim Framework and Tail
 - **Request Body**: Support for JSON payloads in POST/PUT/PATCH requests
 - **Response Formatting**: Automatic JSON pretty-printing for better readability
 - **Loading States**: Visual feedback during API calls
-- **Error Handling**: Comprehensive error display and validation
-- **Responsive Design**: Works seamlessly on desktop and mobile devices
+- **Local API Testing**: Built-in proxy to test local APIs without CORS issues
+- **CORS Bypass**: Automatic proxy routing for localhost API endpoints
 
 ## 📋 Requirements
 
@@ -101,9 +101,16 @@ Open your browser and navigate to `http://your-domain.com`
 - Click any URL to populate the input field
 - History is automatically saved in your browser's localStorage
 
-### Theme Switching
-- Click the sun/moon icon in the header to toggle between light and dark modes
-- Your preference is saved and remembered across sessions
+### Local API Testing
+The tool includes a built-in proxy to test local APIs running on your server without CORS issues:
+
+1. For APIs running on `http://127.0.0.1:19082/`, simply enter the full URL
+2. The tool automatically routes these requests through the proxy
+3. No CORS configuration needed on your backend API
+
+**Example:**
+- Enter: `http://127.0.0.1:19082/api/users`
+- The tool proxies it through: `http://your-domain.com/proxy/api/users`
 
 ## 🐛 Troubleshooting
 
@@ -143,18 +150,22 @@ php -l views/index.php
 - Ensure the `public` directory is set as document root
 - Check that URL rewriting is enabled
 
-### API Requests Not Working
+### CORS Issues with Local APIs
 
-**Common Causes:**
-- CORS issues
-- Invalid JSON in headers/body
-- Network connectivity problems
+**Problem:** "Failed to fetch" error when testing local APIs
 
-**Solutions:**
-- Check browser console for CORS errors
-- Validate JSON syntax in headers and request body
-- Test with a simple GET request first
-- Verify API endpoint is accessible
+**Solution:** The tool includes automatic proxy routing for local APIs:
+- URLs starting with `http://127.0.0.1:19082/` are automatically proxied
+- URLs starting with `http://localhost:19082/` are also supported
+- No additional configuration needed
+
+**Manual Proxy Usage:**
+If you need to proxy other local services, you can use:
+```
+http://your-domain.com/proxy/path/to/endpoint
+```
+
+This proxies to: `http://127.0.0.1:19082/path/to/endpoint`
 
 ### Theme Not Persisting
 

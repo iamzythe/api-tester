@@ -295,7 +295,16 @@
             loadingSpinner.classList.remove('hidden');
 
             try {
-                const response = await fetch(url, {
+                let requestUrl = url;
+
+                // Use proxy for local API requests to avoid CORS
+                if (url.startsWith('http://127.0.0.1:19082/')) {
+                    requestUrl = '/proxy' + url.replace('http://127.0.0.1:19082', '');
+                } else if (url.startsWith('http://localhost:19082/')) {
+                    requestUrl = '/proxy' + url.replace('http://localhost:19082', '');
+                }
+
+                const response = await fetch(requestUrl, {
                     method: method,
                     headers: headers,
                     body: body
