@@ -10,7 +10,7 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![GitHub Sponsors](https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-blue?logo=github)](https://github.com/sponsors/iamzythe)
 [![Ko-fi](https://img.shields.io/badge/Support-Ko--fi-red?logo=kofi)](https://ko-fi.com/iamzythe)
-[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-yellow?logo=buy-me-a-coffee)](https://www.buymeacoffee.com/iamzythe)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-yellow?logo=buy-me-a-coffee)](https://buymeacoffee.com/zytheinfo3)
 
 **A professional, web-based API testing tool built with PHP Slim Framework and Tailwind CSS**
 
@@ -85,8 +85,8 @@
 
 <table>
   <tr>
-    <td><img src="https://via.placeholder.com/400x300/1a1a1a/ffffff?text=API+Tester+Light+Mode" alt="Light Mode" width="400"/></td>
-    <td><img src="https://via.placeholder.com/400x300/2d3748/f7fafc?text=API+Tester+Dark+Mode" alt="Dark Mode" width="400"/></td>
+    <td><img src="https://i.imgur.com/kGz192F.png" alt="Light Mode" width="400"/></td>
+    <td><img src="https://i.imgur.com/coaWYZr.png" alt="Dark Mode" width="400"/></td>
   </tr>
   <tr>
     <td align="center"><strong>Light Mode</strong></td>
