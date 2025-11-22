@@ -104,8 +104,17 @@
                         </div>
 
                         <div>
-                            <label for="body" class="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">Request Body (for POST/PUT/PATCH)</label>
+                            <div class="flex items-center justify-between mb-2">
+                                <label for="body" class="block text-sm font-medium text-gray-700 dark:text-gray-300">Request (for POST/PUT/PATCH)</label>
+                                <div class="flex items-center space-x-2">
+                                    <span class="text-sm text-gray-600 dark:text-gray-400">Query</span>
+                                    <button id="bodyModeToggle" type="button" class="relative inline-flex h-6 w-11 items-center rounded-full bg-gray-200 dark:bg-gray-700 transition-colors focus:outline-none focus:ring-2 focus:ring-blue-500 focus:ring-offset-2">
+                                        <span id="bodyModeToggleKnob" class="inline-block h-4 w-4 transform rounded-full bg-white transition-transform translate-x-1"></span>
+                                    </button>
+                                </div>
+                            </div>
                             <textarea id="body" rows="6" class="w-full px-3 py-2 border border-gray-300 dark:border-gray-600 rounded-lg bg-white dark:bg-gray-700 text-gray-900 dark:text-gray-100 placeholder-gray-500 dark:placeholder-gray-400 font-mono text-sm focus:ring-2 focus:ring-blue-500 focus:border-transparent transition-colors" placeholder='{"name": "John Doe", "email": "john@example.com"}'></textarea>
+                            <p id="bodyHelpText" class="mt-1 text-sm text-gray-500 dark:text-gray-400">Enter JSON data to send in the request body</p>
                         </div>
 
                         <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-lg">
@@ -260,6 +269,41 @@
             renderHistoryDropdown();
         });
 
+        // Body Mode Toggle functionality
+        const bodyModeToggle = document.getElementById('bodyModeToggle');
+        const bodyModeToggleKnob = document.getElementById('bodyModeToggleKnob');
+        const bodyTextarea = document.getElementById('body');
+        const bodyHelpText = document.getElementById('bodyHelpText');
+        let isUrlParamsMode = false;
+
+        // Function to update body mode UI
+        function updateBodyModeUI() {
+            if (isUrlParamsMode) {
+                bodyModeToggle.classList.add('bg-blue-500');
+                bodyModeToggle.classList.remove('bg-gray-200', 'dark:bg-gray-700');
+                bodyModeToggleKnob.classList.add('translate-x-6');
+                bodyModeToggleKnob.classList.remove('translate-x-1');
+                bodyTextarea.placeholder = '{"userId": 123, "action": "view"}';
+                bodyHelpText.textContent = 'Enter JSON data to append as URL query parameters';
+            } else {
+                bodyModeToggle.classList.remove('bg-blue-500');
+                bodyModeToggle.classList.add('bg-gray-200', 'dark:bg-gray-700');
+                bodyModeToggleKnob.classList.remove('translate-x-6');
+                bodyModeToggleKnob.classList.add('translate-x-1');
+                bodyTextarea.placeholder = '{"name": "John Doe", "email": "john@example.com"}';
+                bodyHelpText.textContent = 'Enter JSON data to send in the request body';
+            }
+        }
+
+        // Toggle body mode
+        bodyModeToggle.addEventListener('click', () => {
+            isUrlParamsMode = !isUrlParamsMode;
+            updateBodyModeUI();
+        });
+
+        // Initialize body mode UI
+        updateBodyModeUI();
+
         // API form functionality
         document.getElementById('apiForm').addEventListener('submit', async function(e) {
             e.preventDefault();
@@ -270,6 +314,10 @@
             const bodyText = document.getElementById('body').value;
             const sendButtonText = document.getElementById('sendButtonText');
             const loadingSpinner = document.getElementById('loadingSpinner');
+
+            let requestUrl = url;
+            let requestBody = null;
+            let queryParams = {};
 
             // Add URL to history
             addUrlToHistory(url);
@@ -284,9 +332,31 @@
                 }
             }
 
-            let body = null;
-            if (bodyText && ['POST', 'PUT', 'PATCH'].includes(method)) {
-                body = bodyText;
+            // Handle body/URL params mode
+            if (bodyText) {
+                try {
+                    const bodyData = JSON.parse(bodyText);
+
+                    if (isUrlParamsMode) {
+                        // Convert JSON to query parameters
+                        queryParams = bodyData;
+                    } else if (['POST', 'PUT', 'PATCH'].includes(method)) {
+                        // Send as request body
+                        requestBody = bodyText;
+                    }
+                } catch (err) {
+                    alert('Invalid JSON in body/params');
+                    return;
+                }
+            }
+
+            // Build URL with query parameters if in URL params mode
+            if (isUrlParamsMode && Object.keys(queryParams).length > 0) {
+                const urlObj = new URL(requestUrl);
+                Object.keys(queryParams).forEach(key => {
+                    urlObj.searchParams.append(key, queryParams[key]);
+                });
+                requestUrl = urlObj.toString();
             }
 
             const responseDiv = document.getElementById('response');
@@ -295,23 +365,26 @@
             loadingSpinner.classList.remove('hidden');
 
             try {
-                let requestUrl = url;
-
                 // Use proxy for local API requests to avoid CORS
-                if (url.startsWith('http://127.0.0.1:19082/')) {
-                    requestUrl = '/proxy' + url.replace('http://127.0.0.1:19082', '');
-                } else if (url.startsWith('http://localhost:19082/')) {
-                    requestUrl = '/proxy' + url.replace('http://localhost:19082', '');
+                if (requestUrl.startsWith('http://127.0.0.1:19082/')) {
+                    requestUrl = '/proxy' + requestUrl.replace('http://127.0.0.1:19082', '');
+                } else if (requestUrl.startsWith('http://localhost:19082/')) {
+                    requestUrl = '/proxy' + requestUrl.replace('http://localhost:19082', '');
                 }
 
                 const response = await fetch(requestUrl, {
                     method: method,
                     headers: headers,
-                    body: body
+                    body: requestBody
                 });
 
                 const responseText = await response.text();
                 let formattedResponse = `HTTP ${response.status} ${response.statusText}\n\n`;
+
+                // Show the final URL used (especially useful for URL params mode)
+                if (isUrlParamsMode && Object.keys(queryParams).length > 0) {
+                    formattedResponse += `Final URL: ${requestUrl}\n\n`;
+                }
 
                 // Try to format JSON
                 try {

@@ -9,8 +9,8 @@ A professional web-based API testing tool built with PHP Slim Framework and Tail
 - **URL History**: Store and quickly access previously tested API endpoints (up to 20 URLs)
 - **HTTP Methods**: Support for GET, POST, PUT, DELETE, and PATCH requests
 - **Headers Support**: Custom headers with JSON validation
-- **Request Body**: Support for JSON payloads in POST/PUT/PATCH requests
-- **Response Formatting**: Automatic JSON pretty-printing for better readability
+- **Flexible Body Handling**: Toggle between request body and URL query parameters
+- **JSON Parameter Conversion**: Automatic conversion of JSON to URL-encoded query strings
 - **Loading States**: Visual feedback during API calls
 - **Local API Testing**: Built-in proxy to test local APIs without CORS issues
 - **CORS Bypass**: Automatic proxy routing for localhost API endpoints
@@ -111,6 +111,28 @@ The tool includes a built-in proxy to test local APIs running on your server wit
 **Example:**
 - Enter: `http://127.0.0.1:19082/api/users`
 - The tool proxies it through: `http://your-domain.com/proxy/api/users`
+
+### Request Body vs URL Parameters
+
+The tool supports two modes for sending data:
+
+#### Request Body Mode (Default)
+- Data is sent in the HTTP request body
+- Works with POST, PUT, PATCH methods
+- JSON data is sent as-is in the body
+
+#### URL Parameters Mode
+- Toggle the "URL Params" switch next to the Request Body field
+- JSON data is converted to URL query parameters
+- **Automatic URL Encoding**: Special characters are properly encoded
+- Works with any HTTP method
+- Example: `{"userId": 123, "action": "view & edit"}` becomes `?userId=123&action=view+%26+edit`
+
+**When to use URL Params mode:**
+- Testing GET requests with parameters
+- APIs that expect query parameters instead of body data
+- Debugging parameter encoding
+- **URL Preview**: The response shows the final encoded URL used
 
 ## 🐛 Troubleshooting
 
