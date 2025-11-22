@@ -7,6 +7,7 @@ A professional web-based API testing tool built with PHP Slim Framework and Tail
 - **Professional UI**: Clean, responsive interface with Tailwind CSS styling
 - **Light/Dark Mode**: Automatic theme switching with cookie persistence
 - **URL History**: Store and quickly access previously tested API endpoints (up to 20 URLs)
+- **Saved Requests**: Save and manage frequently used API requests with custom names
 - **HTTP Methods**: Support for GET, POST, PUT, DELETE, and PATCH requests
 - **Headers Support**: Custom headers with JSON validation
 - **Flexible Body Handling**: Toggle between request body and URL query parameters
@@ -100,6 +101,24 @@ Open your browser and navigate to `http://your-domain.com`
 - Click the dropdown arrow next to the URL field to view previously tested endpoints
 - Click any URL to populate the input field
 - History is automatically saved in your browser's localStorage
+
+### Saved Requests
+The tool allows you to save frequently used API requests for quick access:
+
+1. Configure your request (URL, method, headers, body)
+2. Click the "Save Request" button (green button with save icon)
+3. Enter a descriptive name for your request
+4. Your request is saved and appears in the "Saved Requests" section at the top
+5. Click "Load" on any saved request to populate the form
+6. Click the delete icon to remove saved requests
+7. Toggle the "Saved Requests" section visibility using the arrow button
+
+**Features:**
+- Requests are stored in browser localStorage
+- Includes all request configuration (URL, method, headers, body, parameter mode)
+- Timestamp tracking for each saved request
+- Easy management with load and delete options
+- Persistent across browser sessions
 
 ### Local API Testing
 The tool includes a built-in proxy to test local APIs running on your server without CORS issues:
@@ -250,6 +269,7 @@ If you encounter any issues or have questions:
 
 ## 🔄 Updates
 
+- **v1.1.0**: Added saved requests feature for managing frequently used API configurations
 - **v1.0.0**: Initial release with basic API testing functionality
 - Professional UI with Tailwind CSS
 - URL history and theme persistence

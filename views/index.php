@@ -55,6 +55,34 @@
 
         <!-- Main Content -->
         <main class="flex-1 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
+            <!-- Saved Requests Section -->
+            <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6 mb-8">
+                <div class="flex items-center justify-between mb-4">
+                    <h2 class="text-lg font-semibold text-gray-900 dark:text-white flex items-center">
+                        <svg class="w-5 h-5 mr-2 text-purple-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                        Saved Requests
+                    </h2>
+                    <button id="toggleSavedRequests" class="text-sm text-gray-600 dark:text-gray-400 hover:text-gray-800 dark:hover:text-gray-200">
+                        <svg class="w-5 h-5 inline" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path>
+                        </svg>
+                    </button>
+                </div>
+                <div id="savedRequestsContainer" class="hidden">
+                    <div id="savedRequestsList" class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
+                        <!-- Saved requests will be populated here -->
+                    </div>
+                    <div id="noSavedRequests" class="text-center py-8 text-gray-500 dark:text-gray-400">
+                        <svg class="w-12 h-12 mx-auto mb-4 opacity-50" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 11H5m14 0a2 2 0 012 2v6a2 2 0 01-2 2H5a2 2 0 01-2-2v-6a2 2 0 012-2m14 0V9a2 2 0 00-2-2M5 11V9a2 2 0 012-2m0 0V5a2 2 0 012-2h6a2 2 0 012 2v2M7 7h10"></path>
+                        </svg>
+                        No saved requests yet. Save your first request to get started!
+                    </div>
+                </div>
+            </div>
+
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
                 <!-- Request Panel -->
                 <div class="bg-white dark:bg-gray-800 rounded-xl shadow-sm border border-gray-200 dark:border-gray-700 p-6">
@@ -117,13 +145,21 @@
                             <p id="bodyHelpText" class="mt-1 text-sm text-gray-500 dark:text-gray-400">Enter JSON data to send in the request body</p>
                         </div>
 
-                        <button type="submit" class="w-full bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-lg">
-                            <span id="sendButtonText">Send Request</span>
-                            <svg id="loadingSpinner" class="w-5 h-5 inline ml-2 animate-spin hidden" fill="none" viewBox="0 0 24 24">
-                                <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
-                                <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                            </svg>
-                        </button>
+                        <div class="flex space-x-4">
+                            <button type="submit" class="flex-1 bg-gradient-to-r from-blue-500 to-blue-600 hover:from-blue-600 hover:to-blue-700 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 transform hover:scale-105 focus:ring-2 focus:ring-blue-500 focus:ring-offset-2 shadow-lg">
+                                <span id="sendButtonText">Send Request</span>
+                                <svg id="loadingSpinner" class="w-5 h-5 inline ml-2 animate-spin hidden" fill="none" viewBox="0 0 24 24">
+                                    <circle class="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" stroke-width="4"></circle>
+                                    <path class="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                </svg>
+                            </button>
+                            <button type="button" id="saveRequestBtn" class="bg-green-500 hover:bg-green-600 text-white font-semibold py-3 px-6 rounded-lg transition-all duration-200 focus:ring-2 focus:ring-green-500 focus:ring-offset-2 shadow-lg">
+                                <svg class="w-5 h-5 inline mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7H5a2 2 0 00-2 2v9a2 2 0 002 2h14a2 2 0 002-2V9a2 2 0 00-2-2h-3m-1 4l-3 3m0 0l-3-3m3 3V4"></path>
+                                </svg>
+                                Save Request
+                            </button>
+                        </div>
                     </form>
                 </div>
 
@@ -275,6 +311,161 @@
         const bodyTextarea = document.getElementById('body');
         const bodyHelpText = document.getElementById('bodyHelpText');
         let isUrlParamsMode = false;
+
+        // Saved Requests functionality
+        const saveRequestBtn = document.getElementById('saveRequestBtn');
+        const toggleSavedRequests = document.getElementById('toggleSavedRequests');
+        const savedRequestsContainer = document.getElementById('savedRequestsContainer');
+        const savedRequestsList = document.getElementById('savedRequestsList');
+        const noSavedRequests = document.getElementById('noSavedRequests');
+
+        // Function to get saved requests from localStorage
+        function getSavedRequests() {
+            const requests = localStorage.getItem('savedRequests');
+            return requests ? JSON.parse(requests) : [];
+        }
+
+        // Function to save requests to localStorage
+        function saveRequestsToStorage(requests) {
+            localStorage.setItem('savedRequests', JSON.stringify(requests));
+        }
+
+        // Function to render saved requests
+        function renderSavedRequests() {
+            const requests = getSavedRequests();
+            savedRequestsList.innerHTML = '';
+
+            if (requests.length === 0) {
+                noSavedRequests.classList.remove('hidden');
+                savedRequestsList.classList.add('hidden');
+                return;
+            }
+
+            noSavedRequests.classList.add('hidden');
+            savedRequestsList.classList.remove('hidden');
+
+            requests.forEach((request, index) => {
+                const requestCard = document.createElement('div');
+                requestCard.className = 'bg-gray-50 dark:bg-gray-700 rounded-lg p-4 border border-gray-200 dark:border-gray-600 hover:shadow-md transition-shadow';
+
+                const methodColor = {
+                    'GET': 'bg-green-100 text-green-800 dark:bg-green-900 dark:text-green-200',
+                    'POST': 'bg-blue-100 text-blue-800 dark:bg-blue-900 dark:text-blue-200',
+                    'PUT': 'bg-yellow-100 text-yellow-800 dark:bg-yellow-900 dark:text-yellow-200',
+                    'DELETE': 'bg-red-100 text-red-800 dark:bg-red-900 dark:text-red-200',
+                    'PATCH': 'bg-purple-100 text-purple-800 dark:bg-purple-900 dark:text-purple-200'
+                };
+
+                requestCard.innerHTML = `
+                    <div class="flex items-start justify-between mb-2">
+                        <h3 class="font-medium text-gray-900 dark:text-white truncate flex-1 mr-2" title="${request.name}">${request.name}</h3>
+                        <button class="delete-request text-red-500 hover:text-red-700 dark:text-red-400 dark:hover:text-red-300 p-1" data-index="${index}">
+                            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16"></path>
+                            </svg>
+                        </button>
+                    </div>
+                    <div class="flex items-center space-x-2 mb-2">
+                        <span class="px-2 py-1 text-xs font-medium rounded ${methodColor[request.method] || 'bg-gray-100 text-gray-800 dark:bg-gray-800 dark:text-gray-200'}">${request.method}</span>
+                        <span class="text-sm text-gray-600 dark:text-gray-400 truncate" title="${request.url}">${request.url}</span>
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <span class="text-xs text-gray-500 dark:text-gray-400">${new Date(request.timestamp).toLocaleString()}</span>
+                        <button class="load-request px-3 py-1 text-sm bg-blue-500 hover:bg-blue-600 text-white rounded transition-colors" data-index="${index}">Load</button>
+                    </div>
+                `;
+
+                savedRequestsList.appendChild(requestCard);
+            });
+
+            // Add event listeners for delete and load buttons
+            document.querySelectorAll('.delete-request').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const index = parseInt(btn.dataset.index);
+                    deleteSavedRequest(index);
+                });
+            });
+
+            document.querySelectorAll('.load-request').forEach(btn => {
+                btn.addEventListener('click', (e) => {
+                    e.stopPropagation();
+                    const index = parseInt(btn.dataset.index);
+                    loadSavedRequest(index);
+                });
+            });
+        }
+
+        // Function to save current request
+        function saveCurrentRequest() {
+            const url = urlInput.value.trim();
+            if (!url) {
+                alert('Please enter a URL before saving.');
+                return;
+            }
+
+            const requestName = prompt('Enter a name for this request:');
+            if (!requestName || !requestName.trim()) {
+                return;
+            }
+
+            const requestData = {
+                name: requestName.trim(),
+                url: url,
+                method: document.getElementById('method').value,
+                headers: document.getElementById('headers').value,
+                body: document.getElementById('body').value,
+                isUrlParamsMode: isUrlParamsMode,
+                timestamp: new Date().toISOString()
+            };
+
+            const requests = getSavedRequests();
+            requests.unshift(requestData); // Add to beginning
+            saveRequestsToStorage(requests);
+            renderSavedRequests();
+
+            // Show success message
+            alert(`Request "${requestName}" saved successfully!`);
+        }
+
+        // Function to delete a saved request
+        function deleteSavedRequest(index) {
+            if (confirm('Are you sure you want to delete this saved request?')) {
+                const requests = getSavedRequests();
+                requests.splice(index, 1);
+                saveRequestsToStorage(requests);
+                renderSavedRequests();
+            }
+        }
+
+        // Function to load a saved request
+        function loadSavedRequest(index) {
+            const requests = getSavedRequests();
+            const request = requests[index];
+
+            if (request) {
+                urlInput.value = request.url;
+                document.getElementById('method').value = request.method;
+                document.getElementById('headers').value = request.headers;
+                document.getElementById('body').value = request.body;
+                isUrlParamsMode = request.isUrlParamsMode || false;
+                updateBodyModeUI();
+
+                // Scroll to the form
+                document.getElementById('apiForm').scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+
+        // Event listeners
+        saveRequestBtn.addEventListener('click', saveCurrentRequest);
+        toggleSavedRequests.addEventListener('click', () => {
+            const isHidden = savedRequestsContainer.classList.contains('hidden');
+            savedRequestsContainer.classList.toggle('hidden');
+            toggleSavedRequests.querySelector('svg').style.transform = isHidden ? 'rotate(180deg)' : 'rotate(0deg)';
+        });
+
+        // Initialize saved requests display
+        renderSavedRequests();
 
         // Function to update body mode UI
         function updateBodyModeUI() {
