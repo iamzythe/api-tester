@@ -631,7 +631,7 @@ If you find API Tester helpful, consider supporting the project! Your support he
 
 - **[GitHub Sponsors](https://github.com/sponsors/iamzythe)** - Monthly sponsorship
 - **[Ko-fi](https://ko-fi.com/iamzythe)** - One-time donations
-- **[Buy Me a Coffee](https://www.buymeacoffee.com/iamzythe)** - Support with coffee ☕
+- **[Buy Me a Coffee](https://www.buymeacoffee.com/zytheinfo3)** - Support with coffee ☕
 
 #### 🤝 Other Ways to Help
 
