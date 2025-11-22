@@ -1,55 +1,171 @@
 # API Tester
 
-A professional web-based API testing tool built with PHP Slim Framework and Tailwind CSS. Perfect for testing REST APIs, debugging endpoints, and managing API requests with a clean, modern interface.
+<div align="center">
 
-## 🚀 Features
+![API Tester Logo](https://img.shields.io/badge/API%20Tester-Professional%20API%20Testing%20Tool-blue?style=for-the-badge&logo=data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjQiIGhlaWdodD0iMjQiIHZpZXdCb3g9IjAgMCAyNCAyNCIgZmlsbD0ibm9uZSIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIj4KPHBhdGggZD0iTTggOWwzIDMtMyAzbTUgMGgzTTUgMjBoMTRhMiAyIDAgMDAyLTJWNmEyIDIgMCAwMC0yLTJINWEyIDIgMCAwMC0yIDJ2MTJhMiAyIDAgMDAyIDJ6IiBzdHJva2U9ImN1cnJlbnRDb2xvciIgc3Ryb2tlLXdpZHRoPSIyIiBzdHJva2UtbGluZWNhcD0icm91bmQiIHN0cm9rZS1saW5lam9pbj0icm91bmQiLz4KPC9zdmc+)
 
-- **Professional UI**: Clean, responsive interface with Tailwind CSS styling
-- **Light/Dark Mode**: Automatic theme switching with cookie persistence
-- **URL History**: Store and quickly access previously tested API endpoints (up to 20 URLs)
-- **Saved Requests**: Save and manage frequently used API requests with custom names
-- **HTTP Methods**: Support for GET, POST, PUT, DELETE, and PATCH requests
-- **Headers Support**: Custom headers with JSON validation
-- **Flexible Body Handling**: Toggle between request body and URL query parameters
-- **JSON Parameter Conversion**: Automatic conversion of JSON to URL-encoded query strings
-- **Loading States**: Visual feedback during API calls
-- **Local API Testing**: Built-in proxy to test local APIs without CORS issues
-- **CORS Bypass**: Automatic proxy routing for localhost API endpoints
+[![PHP Version](https://img.shields.io/badge/PHP-7.4%2B-blue.svg)](https://php.net/)
+[![Slim Framework](https://img.shields.io/badge/Slim-3.x-green.svg)](https://www.slimframework.com/)
+[![Tailwind CSS](https://img.shields.io/badge/Tailwind_CSS-3.x-38B2AC.svg)](https://tailwindcss.com/)
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![GitHub Sponsors](https://img.shields.io/badge/Sponsor-GitHub%20Sponsors-blue?logo=github)](https://github.com/sponsors/iamzythe)
+[![Ko-fi](https://img.shields.io/badge/Support-Ko--fi-red?logo=kofi)](https://ko-fi.com/iamzythe)
+[![Buy Me a Coffee](https://img.shields.io/badge/Buy%20Me%20a%20Coffee-yellow?logo=buy-me-a-coffee)](https://www.buymeacoffee.com/iamzythe)
+
+**A professional, web-based API testing tool built with PHP Slim Framework and Tailwind CSS**
+
+[🚀 Live Demo](#-demo) • [📖 Documentation](#-documentation) • [🔧 Installation](#-installation) • [🤝 Contributing](#-contributing)
+
+</div>
+
+---
+
+## 📋 Table of Contents
+
+- [✨ Features](#-features)
+- [🚀 Demo](#-demo)
+- [📋 Requirements](#-requirements)
+- [🔧 Installation](#-installation)
+- [🛠️ Usage](#️-usage)
+- [🔧 API Reference](#-api-reference)
+- [🐛 Troubleshooting](#-troubleshooting)
+- [📁 Project Structure](#-project-structure)
+- [🚀 Development](#-development)
+- [🤝 Contributing](#-contributing)
+- [📄 License](#-license)
+- [🙏 Acknowledgments](#-acknowledgments)
+- [💝 Support the Project](#-support-the-project)
+- [📞 Support](#-support)
+
+---
+
+## ✨ Features
+
+<div align="center">
+
+### 🎯 Core Features
+
+| Feature | Description |
+|---------|-------------|
+| **🔄 HTTP Methods** | Full support for GET, POST, PUT, DELETE, PATCH |
+| **📝 Request Builder** | Intuitive interface for building API requests |
+| **📊 Response Viewer** | Formatted JSON responses with syntax highlighting |
+| **💾 Request History** | Automatic URL history with quick access |
+| **🔖 Saved Requests** | Save and manage frequently used API configurations |
+| **🎨 Themes** | Light/Dark mode with automatic persistence |
+
+### 🔧 Advanced Features
+
+| Feature | Description |
+|---------|-------------|
+| **🌐 CORS Bypass** | Built-in proxy for testing local APIs |
+| **🔀 Parameter Modes** | Toggle between request body and URL parameters |
+| **📋 Custom Headers** | JSON-validated custom headers support |
+| **🔄 Auto-URL Encoding** | Automatic encoding of special characters |
+| **📱 Responsive Design** | Works perfectly on desktop and mobile |
+| **⚡ Real-time Feedback** | Loading states and error handling |
+
+### 🎨 UI/UX Features
+
+- **Modern Interface**: Clean, professional design with Tailwind CSS
+- **Intuitive Controls**: Easy-to-use forms and toggles
+- **Visual Feedback**: Loading spinners and status indicators
+- **Keyboard Friendly**: Full keyboard navigation support
+- **Accessibility**: WCAG compliant design patterns
+
+</div>
+
+---
+
+## 🚀 Demo
+
+<div align="center">
+
+### Screenshots
+
+<table>
+  <tr>
+    <td><img src="https://via.placeholder.com/400x300/1a1a1a/ffffff?text=API+Tester+Light+Mode" alt="Light Mode" width="400"/></td>
+    <td><img src="https://via.placeholder.com/400x300/2d3748/f7fafc?text=API+Tester+Dark+Mode" alt="Dark Mode" width="400"/></td>
+  </tr>
+  <tr>
+    <td align="center"><strong>Light Mode</strong></td>
+    <td align="center"><strong>Dark Mode</strong></td>
+  </tr>
+</table>
+
+### Live Demo
+
+🌐 **[Try API Tester Live](https://api-tester.zythe.pro)**
+
+*Test real APIs with our hosted demo instance*
+
+</div>
+
+---
 
 ## 📋 Requirements
 
+### System Requirements
+
 - **PHP**: 7.4 or higher
-- **Web Server**: Nginx or Apache with URL rewriting
+- **Web Server**: Nginx, Apache, or any PHP-compatible server
 - **Composer**: PHP dependency manager
-- **Modern Browser**: Chrome, Firefox, Safari, or Edge (latest versions)
+- **Modern Browser**: Chrome 90+, Firefox 88+, Safari 14+, Edge 90+
 
 ### PHP Extensions
-- `mbstring`
-- `json`
-- `curl` (optional, for advanced features)
 
-## 🛠️ Installation
-
-### 1. Clone or Download
 ```bash
-git clone <your-repo-url>
-cd php_api
+# Required extensions
+php-mbstring    # Multibyte string support
+php-json        # JSON handling
+php-curl        # HTTP requests (optional, for advanced features)
 ```
 
-### 2. Install Dependencies
+### Browser Support
+
+- ✅ Chrome/Chromium (recommended)
+- ✅ Firefox
+- ✅ Safari
+- ✅ Microsoft Edge
+- ✅ Mobile browsers (iOS Safari, Chrome Mobile)
+
+---
+
+## 🔧 Installation
+
+### Quick Start (Development)
+
 ```bash
+# Clone the repository
+git clone https://github.com/iamzythe/api-tester.git
+cd api-tester
+
+# 2. Install PHP dependencies
 composer install
+
+# 3. Start the development server
+php -S localhost:8000 -t public
+
+# 4. Open in browser
+# http://localhost:8000
 ```
 
-### 3. Configure Web Server
+### Production Deployment
 
-#### Nginx Configuration
+#### Option 1: Nginx
+
 ```nginx
 server {
     listen 80;
     server_name your-domain.com;
-    root /path/to/php_api/public;
+    root /path/to/api-tester/public;
     index index.php;
+
+    # Security headers
+    add_header X-Frame-Options "SAMEORIGIN" always;
+    add_header X-Content-Type-Options "nosniff" always;
+    add_header X-XSS-Protection "1; mode=block" always;
 
     location / {
         try_files $uri $uri/ /index.php$is_args$args;
@@ -58,7 +174,7 @@ server {
     location ~ \.php$ {
         include fastcgi_params;
         fastcgi_param SCRIPT_FILENAME $document_root$fastcgi_script_name;
-        fastcgi_pass unix:/var/run/php/php7.4-fpm.sock;
+        fastcgi_pass unix:/var/run/php/php8.1-fpm.sock;
     }
 
     location ~ /\. {
@@ -67,214 +183,501 @@ server {
 }
 ```
 
-#### Apache Configuration (.htaccess)
+#### Option 2: Apache (.htaccess)
+
 ```apache
 RewriteEngine On
 RewriteCond %{REQUEST_FILENAME} !-f
 RewriteCond %{REQUEST_FILENAME} !-d
 RewriteRule ^ index.php [QSA,L]
+
+# Security headers
+<IfModule mod_headers.c>
+    Header always set X-Frame-Options SAMEORIGIN
+    Header always set X-Content-Type-Options nosniff
+    Header always set X-XSS-Protection "1; mode=block"
+</IfModule>
 ```
 
-### 4. Set Permissions
+#### Option 3: Docker
+
+```dockerfile
+FROM php:8.1-fpm-alpine
+
+# Install system dependencies
+RUN apk add --no-cache \
+    nginx \
+    composer \
+    curl
+
+# Set working directory
+WORKDIR /var/www/html
+
+# Copy application files
+COPY . .
+
+# Install PHP dependencies
+RUN composer install --no-dev --optimize-autoloader
+
+# Expose port
+EXPOSE 80
+
+# Start command
+CMD ["php", "-S", "0.0.0.0:80", "-t", "public"]
+```
+
+### File Permissions
+
 ```bash
 # Set proper ownership
-chown -R www-data:www-data /path/to/php_api/
+chown -R www-data:www-data /path/to/api-tester/
 
 # Set proper permissions
-chmod -R 755 /path/to/php_api/
+chmod -R 755 /path/to/api-tester/
+chmod -R 775 /path/to/api-tester/storage/  # If you add file uploads
 ```
 
-### 5. Access the Application
-Open your browser and navigate to `http://your-domain.com`
+---
 
-## 🔧 Usage
+## 🛠️ Usage
 
 ### Basic API Testing
-1. Enter your API endpoint URL in the "API Endpoint URL" field
-2. Select the HTTP method (GET, POST, PUT, DELETE, PATCH)
-3. Add any required headers in JSON format
-4. For POST/PUT/PATCH requests, add your request body
-5. Click "Send Request" to execute the API call
-6. View the formatted response in the right panel
 
-### URL History
-- Click the dropdown arrow next to the URL field to view previously tested endpoints
-- Click any URL to populate the input field
-- History is automatically saved in your browser's localStorage
+1. **Enter API Endpoint**: Input your API URL in the URL field
+2. **Select Method**: Choose HTTP method (GET, POST, PUT, DELETE, PATCH)
+3. **Add Headers**: Include authentication or custom headers in JSON format
+4. **Configure Body**: Add request body for POST/PUT/PATCH requests
+5. **Send Request**: Click "Send Request" to execute
+6. **View Response**: See formatted response with status codes and headers
 
-### Saved Requests
-The tool allows you to save frequently used API requests for quick access:
+### Advanced Features
 
-1. Configure your request (URL, method, headers, body)
-2. Click the "Save Request" button (green button with save icon)
-3. Enter a descriptive name for your request
-4. Your request is saved and appears in the "Saved Requests" section at the top
-5. Click "Load" on any saved request to populate the form
-6. Click the delete icon to remove saved requests
-7. Toggle the "Saved Requests" section visibility using the arrow button
+#### Saved Requests
 
-**Features:**
-- Requests are stored in browser localStorage
-- Includes all request configuration (URL, method, headers, body, parameter mode)
-- Timestamp tracking for each saved request
-- Easy management with load and delete options
-- Persistent across browser sessions
-
-### Local API Testing
-The tool includes a built-in proxy to test local APIs running on your server without CORS issues:
-
-1. For APIs running on `http://127.0.0.1:19082/`, simply enter the full URL
-2. The tool automatically routes these requests through the proxy
-3. No CORS configuration needed on your backend API
-
-**Example:**
-- Enter: `http://127.0.0.1:19082/api/users`
-- The tool proxies it through: `http://your-domain.com/proxy/api/users`
-
-### Request Body vs URL Parameters
-
-The tool supports two modes for sending data:
-
-#### Request Body Mode (Default)
-- Data is sent in the HTTP request body
-- Works with POST, PUT, PATCH methods
-- JSON data is sent as-is in the body
+```javascript
+// Save a request configuration
+const requestConfig = {
+  name: "Get User Profile",
+  url: "https://api.example.com/users/123",
+  method: "GET",
+  headers: {"Authorization": "Bearer token"},
+  body: "",
+  isUrlParamsMode: false
+};
+```
 
 #### URL Parameters Mode
-- Toggle the "URL Params" switch next to the Request Body field
-- JSON data is converted to URL query parameters
-- **Automatic URL Encoding**: Special characters are properly encoded
-- Works with any HTTP method
-- Example: `{"userId": 123, "action": "view & edit"}` becomes `?userId=123&action=view+%26+edit`
 
-**When to use URL Params mode:**
-- Testing GET requests with parameters
-- APIs that expect query parameters instead of body data
-- Debugging parameter encoding
-- **URL Preview**: The response shows the final encoded URL used
+```json
+// JSON input
+{
+  "userId": 123,
+  "action": "view & edit",
+  "filters": ["active", "verified"]
+}
+
+// Becomes URL encoded
+?userId=123&action=view+%26+edit&filters=%5B%22active%22%2C%22verified%22%5D
+```
+
+#### Local API Testing
+
+```bash
+# Automatic proxy for local APIs
+Input:  http://127.0.0.1:19082/api/users
+Proxied: http://your-domain.com/proxy/api/users
+```
+
+### Keyboard Shortcuts
+
+- `Ctrl+Enter` / `Cmd+Enter`: Send request
+- `Ctrl+S` / `Cmd+S`: Save current request
+- `Ctrl+L` / `Cmd+L`: Clear response
+- `Tab`: Navigate between form fields
+
+---
+
+## 🔧 API Reference
+
+### Endpoints
+
+#### GET `/api/status`
+Returns API tester status information.
+
+**Response:**
+```json
+{
+  "status": "ok",
+  "version": "1.1.0",
+  "timestamp": "2025-11-22T10:00:00Z"
+}
+```
+
+#### POST `/proxy/*`
+Proxies requests to local APIs to bypass CORS.
+
+**Usage:**
+```
+POST /proxy/api/endpoint
+```
+
+**Headers:**
+- `X-Target-Host`: Override default proxy target (optional)
+
+### Request/Response Format
+
+#### Request Object
+```typescript
+interface ApiRequest {
+  url: string;
+  method: 'GET' | 'POST' | 'PUT' | 'DELETE' | 'PATCH';
+  headers?: Record<string, string>;
+  body?: string;
+  timeout?: number;
+}
+```
+
+#### Response Object
+```typescript
+interface ApiResponse {
+  status: number;
+  statusText: string;
+  headers: Record<string, string>;
+  data: any;
+  responseTime: number;
+}
+```
+
+---
 
 ## 🐛 Troubleshooting
 
-### 500 Internal Server Error
+### Common Issues
 
-**Common Causes:**
-- Incorrect file permissions
-- Missing PHP extensions
-- Slim Framework version conflicts
-- View file inclusion issues
+#### 500 Internal Server Error
+
+**Symptoms:** White page or "Internal Server Error"
 
 **Solutions:**
 ```bash
-# Check file permissions
-ls -la /path/to/php_api/
-
-# Verify PHP extensions
-php -m | grep -E "(mbstring|json)"
-
 # Check PHP error logs
-tail -f /var/log/php7.4-fpm.log
+tail -f /var/log/php8.1-fpm.log
+
+# Verify file permissions
+ls -la /path/to/api-tester/
 
 # Test PHP syntax
 php -l public/index.php
 php -l views/index.php
+
+# Check PHP extensions
+php -m | grep -E "(mbstring|json|curl)"
 ```
 
-### 404 Not Found
+#### 404 Not Found
 
-**Common Causes:**
-- Incorrect Nginx/Apache configuration
-- Missing URL rewriting rules
-- Wrong document root path
+**Symptoms:** Page not found errors
+
+**Causes:**
+- Incorrect web server configuration
+- Missing URL rewriting
+- Wrong document root
 
 **Solutions:**
-- Verify your web server configuration matches the examples above
-- Ensure the `public` directory is set as document root
-- Check that URL rewriting is enabled
+- Verify Nginx/Apache configuration
+- Ensure `public/` is document root
+- Check `.htaccess` file permissions
 
-### CORS Issues with Local APIs
+#### CORS Issues
 
-**Problem:** "Failed to fetch" error when testing local APIs
-
-**Solution:** The tool includes automatic proxy routing for local APIs:
-- URLs starting with `http://127.0.0.1:19082/` are automatically proxied
-- URLs starting with `http://localhost:19082/` are also supported
-- No additional configuration needed
-
-**Manual Proxy Usage:**
-If you need to proxy other local services, you can use:
-```
-http://your-domain.com/proxy/path/to/endpoint
-```
-
-This proxies to: `http://127.0.0.1:19082/path/to/endpoint`
-
-### Theme Not Persisting
-
-**Common Causes:**
-- Cookies disabled in browser
-- JavaScript errors
+**Symptoms:** "Failed to fetch" errors
 
 **Solutions:**
-- Enable cookies in your browser
-- Clear browser cache and cookies
-- Check browser console for JavaScript errors
+- Use the built-in proxy for local APIs
+- Configure CORS headers on your API server
+- Use browser extensions for development
+
+#### JavaScript Errors
+
+**Symptoms:** Features not working, console errors
+
+**Debug Steps:**
+1. Open browser developer tools (F12)
+2. Check Console tab for errors
+3. Verify JavaScript is not blocked
+4. Clear browser cache and cookies
 
 ### Performance Issues
 
-**Common Causes:**
-- Large response payloads
-- Slow API endpoints
-- Browser resource limitations
+#### Slow Response Times
 
-**Solutions:**
-- Limit response sizes for testing
-- Use pagination for large datasets
-- Clear browser cache regularly
-- Monitor network tab in browser dev tools
+**Optimization Tips:**
+- Enable PHP OPcache
+- Use CDN for static assets
+- Implement caching headers
+- Monitor server resources
+
+#### Large Response Handling
+
+**Best Practices:**
+- Implement pagination for large datasets
+- Use streaming for big responses
+- Set appropriate timeouts
+- Monitor memory usage
+
+### Development Issues
+
+#### Composer Issues
+
+```bash
+# Clear composer cache
+composer clear-cache
+
+# Update dependencies
+composer update
+
+# Reinstall vendor directory
+rm -rf vendor/
+composer install
+```
+
+---
 
 ## 📁 Project Structure
 
 ```
-php_api/
-├── public/
-│   └── index.php          # Slim Framework entry point
-├── views/
-│   └── index.php          # Main API tester interface
-├── vendor/                # Composer dependencies
-├── composer.json          # PHP dependencies
-├── composer.lock          # Dependency lock file
-└── README.md             # This file
+api-tester/
+├── 📁 public/                 # Web root directory
+│   └── 📄 index.php          # Slim Framework entry point
+├── 📁 views/                  # Template files
+│   └── 📄 index.php          # Main application interface
+├── 📁 vendor/                # Composer dependencies (auto-generated)
+├── 📄 composer.json          # PHP dependencies configuration
+├── 📄 composer.lock          # Dependency lock file
+├── 📄 README.md              # Project documentation
+├── 📄 .gitignore             # Git ignore rules
+└── 📄 LICENSE                # MIT License
 ```
 
-## 🤝 Contributing
+### File Descriptions
 
-1. Fork the repository
-2. Create a feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
-
-## 📄 License
-
-This project is licensed under the MIT License - see the LICENSE file for details.
-
-## 🆘 Support
-
-If you encounter any issues or have questions:
-
-1. Check the troubleshooting section above
-2. Review the browser console for JavaScript errors
-3. Check web server error logs
-4. Open an issue on GitHub with detailed information
-
-## 🔄 Updates
-
-- **v1.1.0**: Added saved requests feature for managing frequently used API configurations
-- **v1.0.0**: Initial release with basic API testing functionality
-- Professional UI with Tailwind CSS
-- URL history and theme persistence
-- Comprehensive error handling
+| File/Directory | Purpose |
+|----------------|---------|
+| `public/index.php` | Main application entry point with Slim routes |
+| `views/index.php` | HTML interface with embedded JavaScript |
+| `composer.json` | PHP dependencies and project metadata |
+| `vendor/` | Third-party PHP packages (Slim, etc.) |
 
 ---
 
+## 🚀 Development
+
+### Local Development Setup
+
+```bash
+# Clone repository
+git clone https://github.com/iamzythe/api-tester.git
+cd api-tester
+
+# Install dependencies
+composer install
+
+# Start development server
+php -S localhost:8000 -t public
+
+# Open in browser
+open http://localhost:8000
+```
+
+### Testing
+
+```bash
+# Run PHP tests (if implemented)
+composer test
+
+# Manual testing
+curl -X GET http://localhost:8000/api/status
+
+# Browser testing
+# Open http://localhost:8000 and test API calls
+```
+
+### Building for Production
+
+```bash
+# Install production dependencies only
+composer install --no-dev --optimize-autoloader
+
+# Generate optimized autoloader
+composer dump-autoload --optimize
+
+# Set production environment
+export APP_ENV=production
+```
+
+### Code Quality
+
+```bash
+# Run PHP CodeSniffer
+composer run phpcs
+
+# Fix code style issues
+composer run phpcbf
+
+# Run static analysis
+composer run phpstan
+```
+
+---
+
+## 🤝 Contributing
+
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
+
+### Development Workflow
+
+1. **Fork** the repository
+2. **Clone** your fork: `git clone https://github.com/iamzythe/api-tester.git`
+3. **Create** a feature branch: `git checkout -b feature/amazing-feature`
+4. **Make** your changes and add tests
+5. **Commit** your changes: `git commit -m 'Add amazing feature'`
+6. **Push** to the branch: `git push origin feature/amazing-feature`
+7. **Open** a Pull Request
+
+### Guidelines
+
+- Follow PSR-12 coding standards
+- Write tests for new features
+- Update documentation as needed
+- Keep commits atomic and descriptive
+- Use conventional commit messages
+
+### Code of Conduct
+
+This project follows a code of conduct to ensure a welcoming environment for all contributors. By participating, you agree to uphold this code.
+
+---
+
+## 📄 License
+
+This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
+
+```
+MIT License
+
+Copyright (c) 2025 API Tester
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+```
+
+---
+
+## 🙏 Acknowledgments
+
+### Technologies Used
+
+- **[Slim Framework](https://www.slimframework.com/)** - PHP micro-framework
+- **[Tailwind CSS](https://tailwindcss.com/)** - Utility-first CSS framework
+- **[Inter Font](https://rsms.me/inter/)** - Beautiful, highly readable font
+- **[Heroicons](https://heroicons.com/)** - Beautiful hand-crafted SVG icons
+
+### Inspiration
+
+- **Postman** - Industry-standard API testing tool
+- **Insomnia** - Modern API client
+- **Hoppscotch** - Open-source API testing platform
+
+### Contributors
+
+<a href="https://github.com/iamzythe/api-tester/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=iamzythe/api-tester" />
+</a>
+
+---
+
+## 💝 Support the Project
+
+If you find API Tester helpful, consider supporting the project! Your support helps maintain and improve this open-source tool.
+
+### Ways to Support
+
+#### 💰 Financial Support
+
+- **[GitHub Sponsors](https://github.com/sponsors/iamzythe)** - Monthly sponsorship
+- **[Ko-fi](https://ko-fi.com/iamzythe)** - One-time donations
+- **[Buy Me a Coffee](https://www.buymeacoffee.com/iamzythe)** - Support with coffee ☕
+
+#### 🤝 Other Ways to Help
+
+- **⭐ Star the repository** - Show your support and help others discover the project
+- **🐛 Report bugs** - Help improve the tool by reporting issues
+- **💡 Suggest features** - Share your ideas for new functionality
+- **📖 Improve documentation** - Help make the docs better
+- **🔄 Contribute code** - Submit pull requests with improvements
+
+#### 📢 Spread the Word
+
+Share API Tester with your network:
+- Tweet about it [@iamzythe](https://twitter.com/iamzythe)
+- Write a blog post or tutorial
+- Mention it in your project's README
+
+### Supporters
+
+<a href="https://github.com/iamzythe/api-tester/graphs/contributors">
+  <img src="https://contrib.rocks/image?repo=iamzythe/api-tester" />
+</a>
+
+---
+
+## 📞 Support
+
+### Getting Help
+
+If you need help or have questions:
+
+1. 📖 **Documentation**: Check this README and our [Wiki](https://github.com/iamzythe/api-tester/wiki)
+2. 🔍 **Search Issues**: [GitHub Issues](https://github.com/iamzythe/api-tester/issues)
+3. 💬 **Discussions**: [GitHub Discussions](https://github.com/iamzythe/api-tester/discussions)
+4. 🐛 **Bug Reports**: [Open an Issue](https://github.com/iamzythe/api-tester/issues/new?template=bug_report.md)
+5. 💡 **Feature Requests**: [Open an Issue](https://github.com/iamzythe/api-tester/issues/new?template=feature_request.md)
+
+### Community
+
+- **GitHub**: [github.com/iamzythe/api-tester](https://github.com/iamzythe/api-tester)
+- **Twitter**: [@iamzythe](https://twitter.com/iamzythe) (if applicable)
+- **Discord**: [Join our community](https://discord.gg/your-invite) (if applicable)
+
+### Security
+
+If you discover a security vulnerability, please email security@tester.zythe instead of opening a public issue.
+
+---
+
+<div align="center">
+
 **Built with ❤️ using PHP Slim Framework and Tailwind CSS**
+
+⭐ **Star this repository** if you find it helpful!
+
+[☕ Support the project](https://github.com/sponsors/iamzythe) • [📖 Documentation](#-documentation) • [🚀 Live Demo](#-demo)
+
+[⬆️ Back to Top](#api-tester)
+
+</div>
