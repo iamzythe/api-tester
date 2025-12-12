@@ -1,0 +1,10 @@
+{
+    "localhost": {
+        "enabled": true,
+        "tunnels": {
+            "api_backend": {
+                "target_url": "http://127.0.0.1:19082/api_backend"
+            }
+        }
+    }
+}
